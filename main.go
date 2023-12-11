@@ -33,6 +33,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8999", nil))
 }
 
+//Get the instance name
 func getInstanceName(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -53,6 +54,7 @@ func getInstanceName(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(result)
 }
 
+//Get the inefficient instance
 func getInefficientInstance(threshold int) []string {
 	InefficientInstance := make([]string, 0)
 
@@ -71,6 +73,7 @@ func getInefficientInstance(threshold int) []string {
 	return InefficientInstance
 }
 
+//Mock the data and load it
 func loadMockData() error {
 	ips := []string{"127.0.0.1", "127.0.0.2", "127.0.0.3", "127.0.0.4", "127.0.0.5", "127.0.0.6"}
 	hostNames := []string{"mta-prod-1", "mta-prod-1", "mta-prod-2", "mta-prod-2", "mta-prod-2", "mta-prod-3"}
@@ -95,6 +98,7 @@ func getEnv(key string, defaultValue string) string {
 	return defaultValue
 }
 
+//Get the Env variable
 func GoDotEnvVariable(key string) string {
 
 	// load .env file
